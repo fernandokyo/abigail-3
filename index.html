@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    <title>Gif</title>
+</head>
+<body>
+    <div class="vids_imgs" >
+        <i class="ri-close-line"></i>
+       <h3>Gracias Por Todo  BB ♥</h3>
+       <div class="card_vid ">
+        <video  class="video_je vid1_repro" muted>
+            <source src="./vid1.mp4"/>
+        </video>
+        <audio class="music_fondo" volume=".2" muted>
+            <source src="./home.mp3"/>
+        </audio>
+        <i class="ri-play-line "  id="raaa"></i>
+       </div>
+       <div class="content_imgs">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" ><img src="./img1.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img2.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img3.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img4.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img5.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img6.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img7.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img8.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img9.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img10.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img12.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img13.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img14.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img15.jpeg" alt="" loading="lazy" ></div>
+              <div class="swiper-slide" ><img src="./img16.jpeg" alt="" loading="lazy" ></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+       </div>
+   </div>
+<div class="contenedor">
+    <img src="./fondo.jpg" loading="lazy"/>
+    <div class="contenido">
+         <p class="pauta">Haz click amor ♥</p>
+         <button class="btn_start">Abigail ♥</button>
+    </div>          
+</div>
+ <script src="./swiper-bundle.min.js"></script>
+ <script>
+      let btnCardVid = document.querySelector('.ri-play-line');
+      let vid2 = document.querySelector('.video_je');
+      let btnShowVid = document.querySelector('.btn_start');
+      let mysicBg = document.querySelector('.music_fondo');
+      let closeIcon = document.querySelector('.ri-close-line');
+      let source = document.querySelector('source');
+      let vid1Re = document.querySelector('.vid1_repro');
+
+
+      
+      let words = ['No tengo palabras para','para describir todo lo lindo','que me has hecho sentir ',' desde que llegaste a mi vida ','eres la única ',
+      'a quien e podido darle todo de mi','y ser yo mismo','nadie sabe que vaya a ser de nosotros de ahora','en adelante pero quiero que sepas que siempre seras la persona como es contigo',
+      'eres increíble mi amor te amo',' la más buena de todas','exactamente así como eres',' me encantas y no quiero que cambies','a la que más he podido amar',' mas bonita','que el destino escribió',' en mi vida y ','no quiero que acabe.'];
+      let contadorWords =  0;
+      let wordsInterval;  
+      const playVid = () =>{
+          if(vid2.paused){
+              vid2.play()
+              document.getElementById('raaa').classList.replace('ri-play-line','ri-pause-line')
+              mysicBg.play();
+              mysicBg.volume = '.4';
+              console.log(mysicBg.duration)
+              document.querySelector('h3').classList.add('animation')
+              wordsInterval = setInterval(function(){
+        document.querySelector('.animation').textContent = words[contadorWords];
+       if(contadorWords == 11){
+           contadorWords = 1;
+       }else{
+           contadorWords++;
+       }
+      },5000)
+
+
+          }
+            else{
+              document.querySelector('h3').classList.remove('animation')
+              vid2.pause()
+              document.getElementById('raaa').classList.replace('ri-pause-line','ri-play-line')
+              mysicBg.pause();
+              clearInterval(wordsInterval)
+          }
+
+      }
+      btnCardVid.addEventListener('click',function(){playVid()})
+      btnShowVid.addEventListener('click',function(){
+        document.querySelector('.vids_imgs').classList.add('active');
+        if(vid2.classList.contains('hidden')){
+          vid2.classList.remove('hidden')
+        }
+
+        mysicBg.currentTime = 5;
+
+      })
+
+
+      vid2.addEventListener('ended',function(){
+        vid1Re.classList.add('hidden');
+
+      })
+      closeIcon.addEventListener('click',function(){
+        vid2.classList.add('hidden')
+        document.querySelector('.content_imgs').classList.remove('active');
+        clearInterval(wordsInterval)
+        document.querySelector('.vids_imgs').classList.remove('active');
+        mysicBg.pause();
+        if(vid2.play){
+           vid2.pause();
+        }
+        document.getElementById('raaa').classList.replace('ri-pause-line','ri-play-line')
+
+      })
+
+      vid2.addEventListener('ended',function(){
+        if(vid1Re.ended){
+            vid2.classList.add('hidden');
+            document.querySelector('.content_imgs').classList.add('active');
+
+        }
+      })
+
+     
+    //    let arr = ['./img1.jpg','./img2.jpg','./img3.jpg','./img4.jpg','./img5.jpg'];
+
+
+    //    let contador =  0;
+    //  setInterval(function(){
+    //     console.log( document.querySelector('.imgBx').src );
+    //    if(contador == 4){
+    //         contador = 1
+    //     }else{
+    //        contador++;
+    //    }
+    //    },1000)
+    
+      /* -------------------- Swiper ------------ */
+      var swiper = new Swiper('.swiper', {
+      effect: 'cube',
+      grabCursor: true,
+      loop:true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      autoplay :{
+          delay:2500,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+ </script>
+
+
+</body>
+</html>
