@@ -64,9 +64,9 @@
 
 
       
-      let words = ['No tengo palabras para','para describir todo lo lindo','que me has hecho sentir ',' desde que llegaste a mi vida ','eres la única ',
-      'a quien e podido darle todo de mi','y ser yo mismo','nadie sabe que vaya a ser de nosotros de ahora','en adelante pero quiero que sepas que siempre seras la persona como es contigo',
-      'eres increíble mi amor te amo',' la más buena de todas','exactamente así como eres',' me encantas y no quiero que cambies','a la que más he podido amar',' mas bonita','que el destino escribió',' en mi vida y ','no quiero que acabe.'];
+      let words = ['No tengo palabras para','para describir todo lo lindo','que me has hecho sentir ',' desde que llegaste a mi vida ','eres la única persona a quien',
+      ' e podido darle todo de mi','y ser yo mismo, nadie sabe que nosotros ',' de ahora en adelante, pero quiero que' , ' sepas que siempre seras la persona a la ',
+      'mas he podido amar ',' la más buena de todas','exactamente así como eres',' me encantas y no quiero que cambies','a la que más he podido amar','erea increíble mi amor, te amo.'];
       let contadorWords =  0;
       let wordsInterval;  
       const playVid = () =>{
@@ -79,7 +79,7 @@
               document.querySelector('h3').classList.add('animation')
               wordsInterval = setInterval(function(){
         document.querySelector('.animation').textContent = words[contadorWords];
-       if(contadorWords == 11){
+       if(contadorWords == 15){
            contadorWords = 1;
        }else{
            contadorWords++;
